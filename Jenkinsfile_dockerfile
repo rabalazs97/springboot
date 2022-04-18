@@ -4,13 +4,14 @@ pipeline {
     }
     agent {
         dockerfile {
-            args '-it -e PK -v /home/cloud/maven-repo:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
+            args '-e PK -v /home/cloud/maven-repo:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
         }
     }
 
     stages {
         stage("Build") {
             steps {
+                sh "echo $PK"
                 sh "cat /home/jenkins/.ssh/id_rsa"
                 sh "ssh -V"
                 sh "mvn -version"
