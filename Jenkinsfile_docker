@@ -5,7 +5,7 @@ pipeline {
     agent {
         docker {
             image "maven:3.8.5-jdk-11"
-            args '-v $WORKSPACE:/home/cloud/maven-repo/.m2 -e MAVEN_CONFIG=/home/cloud/maven-repo/.m2'
+            args '-v /home/cloud/maven-repo:/home/cloud/maven-repo/.m2 -e MAVEN_CONFIG=/home/cloud/maven-repo/.m2'
         }
     }
 
