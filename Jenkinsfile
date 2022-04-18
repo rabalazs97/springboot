@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        JAVA_TOOL_OPTIONS = "-Duser.home=/home/cloud/maven-repo"
+    }
     agent any
 
     stages {
