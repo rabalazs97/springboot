@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image "maven:3.8.5-jdk-11"
-            args '-v ${PWD}:/usr/src/app -w /usr/src/app'
+            args '-v ${PWD}:/home/cloud/maven-repo -w /home/cloud/maven-repo'
             reuseNode true
         }
     }
