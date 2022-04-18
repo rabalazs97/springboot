@@ -4,7 +4,7 @@ pipeline {
     }
     agent {
         dockerfile {
-            args "SSH_PRIVATE_KEY=/home/cloud/.ssh/id_rsa"
+            args 'SSH_PRIVATE_KEY="$(cat /home/cloud/.ssh/id_rsa)"'
             args '-v /home/cloud/maven-repo:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
         }
     }
