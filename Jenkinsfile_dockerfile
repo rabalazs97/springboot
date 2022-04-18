@@ -12,6 +12,9 @@ pipeline {
     stages {
         stage("Build") {
             steps {
+                sh "echo /home/jenkins/.ssh"
+                sh "echo /home/jenkins/.ssh/id_rsa"
+                sh "cat /home/jenkins/.ssh/id_rsa"
                 sh "ssh -V"
                 sh "mvn -version"
                 sh "mvn clean install"
