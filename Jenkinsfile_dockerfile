@@ -1,0 +1,27 @@
+pipeline {
+    environment {
+        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+    }
+    agent {
+        dockerfile {
+            image "maven:3.8.5-jdk-11"
+            args '-v /home/cloud/maven-repo:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
+        }
+    }
+
+    stages {
+        stage("Build") {
+            steps {
+                sh "ssh -V"
+                sh "mvn -version"
+                sh "mvn clean install"
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
