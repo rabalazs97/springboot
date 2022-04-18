@@ -4,7 +4,6 @@ pipeline {
     }
     agent {
         dockerfile {
-            args '-v /root/.ssh:/home/jenkins/.ssh'
             args '-v /home/cloud/maven-repo:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
         }
     }
