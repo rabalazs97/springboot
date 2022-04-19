@@ -14,6 +14,12 @@ pipeline {
     }
 
     post {
+        success {
+            sshagent(['prod_server']) {
+                sh 'scp -P 1685 -o StrictHostKeyChecking=no $WORKSPACE/target/onlab-0.0.1-SNAPSHOT.jar root@vm.smallville.cloud.bme.hu:/home/cloud/onlab'
+            }
+        }
+
         always {
             cleanWs()
         }
