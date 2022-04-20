@@ -5,5 +5,6 @@ RUN useradd -m -u 108 -s /bin/bash jenkins
 RUN mkdir -p /home/jenkins/.ssh
 RUN chown -R jenkins:jenkins /home/jenkins/.ssh
 RUN chmod -R 777 /home/jenkins/.ssh
+RUN ls -la /home/jenkins/.ssh
 
 RUN apt-get install openssh-client -y
