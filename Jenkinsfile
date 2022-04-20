@@ -18,7 +18,7 @@ pipeline {
             sshagent(['prod_server']) {
                 sh "ssh -o StrictHostKeyChecking=no root@vm.smallville.cloud.bme.hu -p 1685 'bash -s' < stop_jar.sh"
                 sh 'scp -P 1685 -o StrictHostKeyChecking=no $WORKSPACE/target/onlab-0.0.1-SNAPSHOT.jar root@vm.smallville.cloud.bme.hu:/home/cloud/onlab'
-                sh "ssh -f -o StrictHostKeyChecking=no root@vm.smallville.cloud.bme.hu -p 1685 'bash -s' < start_jar.sh"
+                sh "ssh -o StrictHostKeyChecking=no root@vm.smallville.cloud.bme.hu -p 1685 'bash -s' < start_jar.sh"
             }
         }
 
