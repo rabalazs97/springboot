@@ -20,7 +20,7 @@ pipeline {
 
     post { 
         success {
-            sh "scp -P 1685 -o StrictHostKeyChecking=no /home/jenkins/.m2/repository/com/example/onlab/0.0.1-SNAPSHOT/onlab-0.0.1-SNAPSHOT.jar root@vm.smallville.cloud.bme.hu:/home/cloud/onlab_dockerfile"
+            sh "scp -P 1685 -i /home/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no /home/jenkins/.m2/repository/com/example/onlab/0.0.1-SNAPSHOT/onlab-0.0.1-SNAPSHOT.jar root@vm.smallville.cloud.bme.hu:/home/cloud/onlab_dockerfile"
         }
 
         cleanup {
