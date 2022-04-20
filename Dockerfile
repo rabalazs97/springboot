@@ -39,3 +39,4 @@ RUN chmod -R 777 /home/jenkins/.ssh
 RUN ls -la /home/jenkins/.ssh
 
 RUN apt-get install openssh-client -y
+RUN apt-get install -y sshpass
