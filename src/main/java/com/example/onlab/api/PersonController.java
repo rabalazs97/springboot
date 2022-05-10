@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@RequestMapping("person2")
+@RequestMapping("person")
 @RestController
 public class PersonController {
 
